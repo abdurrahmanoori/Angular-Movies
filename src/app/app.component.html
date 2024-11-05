@@ -3,6 +3,9 @@
 
 <dir *ngFor="let movie of movies; let i = index">
   <div class="movie-containtar">
+    <div>
+      <img [ngSrc]="movie.poster" width="164" height="100" />
+    </div>
     {{ i + 1 }})
     <div>Title: {{ movie.title | uppercase }}</div>
     <div>Price: {{ movie.Price | currency }}</div>
