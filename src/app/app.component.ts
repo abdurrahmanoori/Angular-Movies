@@ -12,7 +12,7 @@ import { MoveisListComponent } from "./moveis/moveis-list/moveis-list.component"
 })
 export class AppComponent {
 
-  inTheaterMovies?:any[];
+  inTheaterMovies?: any[];
   upCommingReleaseMovies?: any[];
 
   constructor() {
@@ -28,7 +28,7 @@ export class AppComponent {
         Price: 500,
         poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTh2CpkT8o4B7jMifn0ZmWWhO6gZh_3SnbYUw&s"
       }]
-      this.upCommingReleaseMovies =[{
+      this.upCommingReleaseMovies = [{
         title: "Darkan",
         releaseDate: new Date("2000-2-2"),
         Price: 500,
@@ -40,7 +40,7 @@ export class AppComponent {
         Price: 500,
         poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlC3J637_Pt9fKW4yjh7MNwCRTm5PJxrXZDw&s"
       }]
-    }, 3000);
+    }, 300);
   }
 
 }

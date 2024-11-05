@@ -6,11 +6,17 @@
   <p>There is no image.</p>
 </div>
 
+<button (click)="addMovie()">Add Movie</button>
+
 <div *ngIf="movies && movies.length > 0">
   <dir *ngFor="let movie of movies; let i = index">
     <div class="movie-containtar">
       <div>
+        @if (movie.poster) {
         <img [ngSrc]="movie.poster" width="164" height="100" />
+        } @else {
+        <img src="blank.jpg" />
+        }
       </div>
       {{ i + 1 }})
       <div>Title: {{ movie.title | uppercase }}</div>
