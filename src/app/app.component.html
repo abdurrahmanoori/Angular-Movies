@@ -1,16 +1,25 @@
 <!-- @for (movie of movies; track $index) { -->
 <!-- <h1>Moview info</h1> -->
+<div *ngIf="!movies">
+  <img src="https://media.tenor.com/On7kvXhzml4AAAAj/loading-gif.gif" />
+</div>
 
-<dir *ngFor="let movie of movies; let i = index">
-  <div class="movie-containtar">
-    <div>
-      <img [ngSrc]="movie.poster" width="164" height="100" />
+<div *ngIf="movies?.length == 0">
+  <p>There is no image.</p>
+</div>
+
+<div *ngIf="movies && movies.length > 0">
+  <dir *ngFor="let movie of movies; let i = index">
+    <div class="movie-containtar">
+      <div>
+        <img [ngSrc]="movie.poster" width="164" height="100" />
+      </div>
+      {{ i + 1 }})
+      <div>Title: {{ movie.title | uppercase }}</div>
+      <div>Price: {{ movie.Price | currency }}</div>
+
+      <div>Release Date {{ movie.releaseDate | date : "YYYY/MM/dd" }}</div>
     </div>
-    {{ i + 1 }})
-    <div>Title: {{ movie.title | uppercase }}</div>
-    <div>Price: {{ movie.Price | currency }}</div>
-
-    <div>Release Date {{ movie.releaseDate | date : "YYYY/MM/dd" }}</div>
-  </div>
-</dir>
+  </dir>
+</div>
 <!-- } -->
