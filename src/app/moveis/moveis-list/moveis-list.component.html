@@ -1,28 +1,27 @@
-<div *ngIf="!movies">
-  <img src="loading.gif" />
-</div>
-
-<div *ngIf="movies?.length == 0">
-  <p>There is no image.</p>
-</div>
-
 <button (click)="addMovie()">Add Movie</button>
 
-<div *ngIf="movies && movies.length > 0">
-  <dir *ngFor="let movie of movies; let i = index">
-    <div class="movie-containtar">
-      <div>
-        @if (movie.poster) {
-        <img [ngSrc]="movie.poster" width="164" height="100" />
-        } @else {
-        <img src="blank.jpg" />
-        }
-      </div>
-      {{ i + 1 }})
-      <div>Title: {{ movie.title | uppercase }}</div>
-      <div>Price: {{ movie.Price | currency }}</div>
+<ng-content select="[elements]">
+  <ng-container content>
+    <dir *ngFor="let movie of movies; let i = index">
+      <div class="movie-containtar">
+        <div>
+          @if (movie.poster) {
+          <img
+            [ngSrc]="movie.poster"
+            priority="movie.poster"
+            width="164"
+            height="100"
+          />
+          } @else {
+          <img src="blank.jpg" />
+          }
+        </div>
+        {{ i + 1 }})
+        <div>Title: {{ movie.title | uppercase }}</div>
+        <div>Price: {{ movie.Price | currency }}</div>
 
-      <div>Release Date {{ movie.releaseDate | date : "YYYY/MM/dd" }}</div>
-    </div>
-  </dir>
-</div>
+        <div>Release Date {{ movie.releaseDate | date : "YYYY/MM/dd" }}</div>
+      </div>
+    </dir>
+  </ng-container>
+</ng-content>

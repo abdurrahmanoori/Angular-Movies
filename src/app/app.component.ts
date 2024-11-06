@@ -40,7 +40,7 @@ export class AppComponent {
         Price: 500,
         poster: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlC3J637_Pt9fKW4yjh7MNwCRTm5PJxrXZDw&s"
       }]
-    }, 300);
+    }, 2000);
   }
 
 }

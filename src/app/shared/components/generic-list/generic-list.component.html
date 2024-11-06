@@ -1,0 +1,11 @@
+<div *ngIf="elements">
+  <img src="loading.gif" />
+</div>
+
+<div *ngIf="elements.length == 0">
+  <p>There is no image.</p>
+</div>
+
+<div *ngIf="elements && elements.length > 0">
+  <ng-content select="[content]"></ng-content>
+</div>
