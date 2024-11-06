@@ -1,27 +1,21 @@
 <button (click)="addMovie()">Add Movie</button>
-
-<ng-content select="[elements]">
+<app-generic-list [elements]="movies">
   <ng-container content>
-    <dir *ngFor="let movie of movies; let i = index">
-      <div class="movie-containtar">
-        <div>
-          @if (movie.poster) {
-          <img
-            [ngSrc]="movie.poster"
-            priority="movie.poster"
-            width="164"
-            height="100"
-          />
-          } @else {
+    <div *ngFor="let movie of movies; let i = index" class="movie-container">
+      <div>
+        <img
+          *ngIf="movie.poster; else noPoster"
+          [ngSrc]="movie.poster"
+          width="164"
+          height="100"
+        />
+        <ng-template #noPoster>
           <img src="blank.jpg" />
-          }
-        </div>
-        {{ i + 1 }})
-        <div>Title: {{ movie.title | uppercase }}</div>
-        <div>Price: {{ movie.Price | currency }}</div>
-
-        <div>Release Date {{ movie.releaseDate | date : "YYYY/MM/dd" }}</div>
+        </ng-template>
       </div>
-    </dir>
+      <div>{{ i + 1 }}) Title: {{ movie.title | uppercase }}</div>
+      <div>Price: {{ movie.Price | currency }}</div>
+      <div>Release Date: {{ movie.releaseDate | date : "yyyy/MM/dd" }}</div>
+    </div>
   </ng-container>
-</ng-content>
+</app-generic-list>

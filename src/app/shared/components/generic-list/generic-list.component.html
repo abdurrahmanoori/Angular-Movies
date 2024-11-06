@@ -1,9 +1,9 @@
-<div *ngIf="elements">
+<div *ngIf="!elements">
   <img src="loading.gif" />
 </div>
 
-<div *ngIf="elements.length == 0">
-  <p>There is no image.</p>
+<div *ngIf="elements && elements.length === 0">
+  <p>There are no elements.</p>
 </div>
 
 <div *ngIf="elements && elements.length > 0">

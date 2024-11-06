@@ -1,10 +1,11 @@
 import { CurrencyPipe, DatePipe, NgFor, NgIf, NgOptimizedImage, UpperCasePipe } from '@angular/common';
 // import { Component, input } from '@angular/core';
 import { Component, Input } from '@angular/core';
+import { GenericListComponent } from "../../shared/components/generic-list/generic-list.component";
 @Component({
   selector: 'app-moveis-list',
   standalone: true,
-  imports: [NgIf, NgOptimizedImage, CurrencyPipe, UpperCasePipe, DatePipe, NgFor],
+  imports: [GenericListComponent, NgIf, NgOptimizedImage, CurrencyPipe, UpperCasePipe, DatePipe, NgFor, GenericListComponent],
   templateUrl: './moveis-list.component.html',
   styleUrl: './moveis-list.component.css'
 })
