@@ -1,4 +1,8 @@
-<button (click)="addMovie()">Add Movie</button>
+<button mat-flat-button (click)="addMovie()">
+  <mat-icon>add</mat-icon>
+  Add
+</button>
+
 <app-generic-list [elements]="movies">
   <ng-container content>
     <div *ngFor="let movie of movies; let i = index" class="movie-container">

@@ -2,10 +2,12 @@ import { CurrencyPipe, DatePipe, NgFor, NgIf, NgOptimizedImage, UpperCasePipe } 
 // import { Component, input } from '@angular/core';
 import { Component, Input } from '@angular/core';
 import { GenericListComponent } from "../../shared/components/generic-list/generic-list.component";
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 @Component({
   selector: 'app-moveis-list',
   standalone: true,
-  imports: [GenericListComponent, NgIf, NgOptimizedImage, CurrencyPipe, UpperCasePipe, DatePipe, NgFor, GenericListComponent],
+  imports: [MatIconModule, MatButtonModule, GenericListComponent, NgIf, NgOptimizedImage, CurrencyPipe, UpperCasePipe, DatePipe, NgFor, GenericListComponent],
   templateUrl: './moveis-list.component.html',
   styleUrl: './moveis-list.component.css'
 })
