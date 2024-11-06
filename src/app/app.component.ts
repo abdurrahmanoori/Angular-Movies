@@ -1,6 +1,5 @@
 import { CurrencyPipe, DatePipe, NgFor, NgIf, NgOptimizedImage, UpperCasePipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { MoveisListComponent } from "./moveis/moveis-list/moveis-list.component";
 
 @Component({
