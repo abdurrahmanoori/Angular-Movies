@@ -5,40 +5,37 @@ import { MatIcon } from '@angular/material/icon';
 @Component({
   selector: 'app-rating',
   standalone: true,
-  imports: [MatIcon,NgClass],
+  imports: [MatIcon, NgClass],
   templateUrl: './rating.component.html',
   styleUrl: './rating.component.css'
 })
-export class RatingComponent implements OnInit {
-ngOnInit(): void {
-  this.maxRatingArray = Array(this.maxRating).fill(0)
+export class RatingComponent {
 
-}
+  @Input({ required: true, transform: (value: number) => Array(value).fill(0) })
+  maxRating!: any;
 
-@Input({required: true})
-maxRating!:number;
 
-maxRatingArray: any[]=[];
 
-@Input()
-seletedRating = 0;
-clickRating = 0;
-handleMouseEnter(index:number){
-  this.seletedRating = index+1;
-}
+  @Input()
+  seletedRating = 0;
 
-handleMouseLeave(){
-  if(this.clickRating !==0){
-    this.seletedRating = this.clickRating;
-  }else{
-    this.seletedRating = 0;
+  clickRating = 0;
+  handleMouseEnter(index: number) {
+    this.seletedRating = index + 1;
   }
-}
+
+  handleMouseLeave() {
+    if (this.clickRating !== 0) {
+      this.seletedRating = this.clickRating;
+    } else {
+      this.seletedRating = 0;
+    }
+  }
 
 
-handleClick(index:number){
-  this.seletedRating = index +1;
-  this.clickRating = this.seletedRating; 
-}
+  handleClick(index: number) {
+    this.seletedRating = index + 1;
+    this.clickRating = this.seletedRating;
+  }
 
 }
