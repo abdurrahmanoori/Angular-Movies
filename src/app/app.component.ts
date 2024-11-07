@@ -2,11 +2,12 @@ import { CurrencyPipe, DatePipe, NgFor, NgIf, NgOptimizedImage, UpperCasePipe } 
 import { Component } from '@angular/core';
 import { MoveisListComponent } from "./moveis/moveis-list/moveis-list.component";
 import { MenuComponent } from "./shared/components/menu/menu.component";
+import { RatingComponent } from "./shared/components/rating/rating.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [DatePipe, UpperCasePipe, CurrencyPipe, NgFor, NgOptimizedImage, NgIf, MoveisListComponent, MenuComponent],
+  imports: [DatePipe, UpperCasePipe, CurrencyPipe, NgFor, NgOptimizedImage, NgIf, MoveisListComponent, MenuComponent, RatingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
