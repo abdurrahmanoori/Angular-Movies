@@ -3,7 +3,8 @@
 (mouseenter)="handleMouseEnter($index)"
 (mouseleave)="handleMouseLeave()"
 [ngClass]="{ highlighted: seletedRating > $index }"
-
-  >star
+(click) = "handleClick($index)"
+  
+>star
 </mat-icon>
 }

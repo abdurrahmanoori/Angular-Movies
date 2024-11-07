@@ -22,13 +22,23 @@ maxRatingArray: any[]=[];
 
 @Input()
 seletedRating = 0;
-
+clickRating = 0;
 handleMouseEnter(index:number){
   this.seletedRating = index+1;
 }
 
 handleMouseLeave(){
-  this.seletedRating = 0;
+  if(this.clickRating !==0){
+    this.seletedRating = this.clickRating;
+  }else{
+    this.seletedRating = 0;
+  }
+}
+
+
+handleClick(index:number){
+  this.seletedRating = index +1;
+  this.clickRating = this.seletedRating; 
 }
 
 }
