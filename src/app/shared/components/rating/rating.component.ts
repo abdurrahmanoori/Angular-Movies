@@ -1,10 +1,11 @@
+import { NgClass } from '@angular/common';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatIcon } from '@angular/material/icon';
 
 @Component({
   selector: 'app-rating',
   standalone: true,
-  imports: [MatIcon],
+  imports: [MatIcon,NgClass],
   templateUrl: './rating.component.html',
   styleUrl: './rating.component.css'
 })
@@ -18,4 +19,16 @@ ngOnInit(): void {
 maxRating!:number;
 
 maxRatingArray: any[]=[];
+
+@Input()
+seletedRating = 0;
+
+handleMouseEnter(index:number){
+  this.seletedRating = index+1;
+}
+
+handleMouseLeave(){
+  this.seletedRating = 0;
+}
+
 }
