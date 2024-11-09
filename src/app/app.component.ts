@@ -44,4 +44,9 @@ export class AppComponent {
     }, 2000);
   }
 
+  processRating(rate:number){
+    alert(`you rated the move ${rate}`);
+  }
+
+
 }
