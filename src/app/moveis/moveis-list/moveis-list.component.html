@@ -5,8 +5,8 @@
 
 <app-generic-list [elements]="movies">
   <ng-container content>
-    <div *ngFor="let movie of movies; let i = index" class="movie-container">
-      <div>
+    <div *ngFor="let movie of movies; let i = index" class="movie-containtar">
+      <div >
         <img
           *ngIf="movie.poster; else noPoster"
           [ngSrc]="movie.poster"

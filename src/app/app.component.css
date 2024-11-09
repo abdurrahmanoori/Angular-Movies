@@ -1,7 +1,4 @@
-.movie-containtar{
-    border: 1px solid black;
-    margin-bottom: 2rem;
-    padding: 1rem;
-    display: flex;
-    gap: 1rem;
+.container {
+    margin: 0 100px;
+    padding-bottom: 100px;
 }
