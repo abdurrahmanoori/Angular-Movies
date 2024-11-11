@@ -5,6 +5,7 @@ import { MatError, MatFormField, MatLabel } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { Router, RouterLink } from '@angular/router';
+import { firstLetterShouldBeUppercase } from '../../shared/functions/validations';
 
 @Component({
   selector: 'app-create-geres',
@@ -18,10 +19,10 @@ export class CreateGeresComponent {
   private formBuilder = inject(FormBuilder);
 
 
-
   form = this.formBuilder.group({
-    name: ['', Validators.required]
+    name: ['', { validators: [Validators.required, firstLetterShouldBeUppercase()] }]
   });
+
 
 
   saveChanges() {
@@ -32,9 +33,11 @@ export class CreateGeresComponent {
   getErrorMessageForName(): string {
     let field = this.form.controls.name;
     if (field.hasError('required')) {
-      return 'Name field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is requiredName field is required';
+      return 'Name field is required'
     }
-
+    if (field.hasError('firstLetterShouldBeUppercase')) {
+      return field.getError('firstLetterShouldBeUppercase').message;
+    }
     return "";
   }
 
