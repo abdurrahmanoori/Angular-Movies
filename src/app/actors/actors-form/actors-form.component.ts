@@ -1,15 +1,22 @@
-import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MatButtonModule } from '@angular/material/button';
-import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { RouterModule } from '@angular/router';
-import { ActorCreationDTO, ActorDTO } from '../actors.models';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { Component, OnInit, inject, Input, Output, EventEmitter } from '@angular/core';
+import { FormBuilder, Validators, FormControl, ReactiveFormsModule } from '@angular/forms';
+import { ActorDTO, ActorCreationDTO } from '../actors.models';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-actors-form',
   standalone: true,
-  imports: [MatButtonModule, ReactiveFormsModule, MatFormFieldModule, RouterModule, MatDatepickerModule, MatFormFieldModule],
+  imports: [MatInputModule,
+    MatFormFieldModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
+    MatButtonModule,],
+  // imports: [MatButtonModule, ReactiveFormsModule, MatFormFieldModule, RouterModule, MatDatepickerModule, MatFormFieldModule],
   templateUrl: './actors-form.component.html',
   styleUrl: './actors-form.component.css'
 })

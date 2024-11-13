@@ -11,11 +11,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .button-container button{
     margin-right:1rem ;
-}
+} 
 
 mat-form-field{
     width: 100%;
     max-width: 500px;
+    display: block !important;
+    margin-top: 1rem;
+
 }
 
 .button-container{

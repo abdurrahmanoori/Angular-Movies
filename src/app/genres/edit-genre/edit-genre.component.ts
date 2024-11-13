@@ -1,5 +1,4 @@
 import { Component, Input, numberAttribute } from '@angular/core';
-import { transform } from 'typescript';
 import { GenresCreationDTO, GenresDTO } from '../genres.models';
 import { GenresFormComponent } from "../genres-form/genres-form.component";
 
