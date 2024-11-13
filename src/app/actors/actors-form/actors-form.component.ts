@@ -6,6 +6,7 @@ import { Component, OnInit, inject, Input, Output, EventEmitter } from '@angular
 import { FormBuilder, Validators, FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ActorDTO, ActorCreationDTO } from '../actors.models';
 import { MatButtonModule } from '@angular/material/button';
+import { dateCannotBeInTheFuture } from '../../shared/functions/validations';
 
 @Component({
   selector: 'app-actors-form',
@@ -25,7 +26,8 @@ export class ActorsFormComponent implements OnInit {
 
   form = this.formBuilder.group({
     name: ['', { validators: [Validators.required] }],
-    dateOfBirth: new FormControl<Date | null>(null)
+    dateOfBirth: new FormControl<Date | null>
+      (null, { validators: [Validators.required, dateCannotBeInTheFuture()] })
   });
 
   @Input()
@@ -43,10 +45,23 @@ export class ActorsFormComponent implements OnInit {
   getErrorMessageForName(): string {
     let field = this.form.controls.name;
     if (field.hasError('required')) {
-      return 'The name field is required';
+      return "The name field is required";
     }
     return '';
   }
+
+  getErrorMessageForDateOfBirth(): string {
+    let field = this.form.controls.dateOfBirth;
+    if (field.hasError('required')) {
+      return "The date of birth field is required";
+    }
+
+    if (field.hasError('dateCannotBeInTheFuture')) {
+      return field.getError('dateCannotBeInTheFuture').message;
+    }
+    return '';
+  }
+
 
   saveChanges(): void {
 

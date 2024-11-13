@@ -13,6 +13,7 @@
       [matDatepicker]="picker"
       [formControl]="form.controls.dateOfBirth"
     />
+    <mat-error>{{ getErrorMessageForDateOfBirth() }}</mat-error>
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
   </mat-form-field>
 
