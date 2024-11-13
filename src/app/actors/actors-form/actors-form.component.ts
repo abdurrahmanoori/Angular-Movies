@@ -28,7 +28,8 @@ export class ActorsFormComponent implements OnInit {
   form = this.formBuilder.group({
     name: ['', { validators: [Validators.required] }],
     dateOfBirth: new FormControl<Date | null>
-      (null, { validators: [Validators.required, dateCannotBeInTheFuture()] })
+      (null, { validators: [Validators.required, dateCannotBeInTheFuture()] }),
+    pricture: new FormControl<null | File | string>(null),
   });
 
   @Input()
@@ -63,6 +64,9 @@ export class ActorsFormComponent implements OnInit {
     return '';
   }
 
+  handeFileSelection(file: File) {
+    this.form.controls.pricture.setValue(file);
+  }
 
   saveChanges(): void {
 
