@@ -1,14 +1,23 @@
 import { Component, Input, numberAttribute } from '@angular/core';
-import { transform } from 'typescript';
+import { TheatersFormComponent } from "../theaters-form/theaters-form.component";
+import { TheaterCreationDTO, TheaterDTO } from '../theaters.models';
 
 @Component({
   selector: 'app-edit-theater',
   standalone: true,
-  imports: [],
+  imports: [TheatersFormComponent],
   templateUrl: './edit-theater.component.html',
   styleUrl: './edit-theater.component.css'
 })
 export class EditTheaterComponent {
   @Input({ transform: numberAttribute })
   id!: number;
+
+  model: TheaterDTO = { id: 1, name: 'test theater name' };
+
+  saveChanges(theater: TheaterCreationDTO) {
+    console.log('editing the theater', theater);
+  }
+
+
 }
