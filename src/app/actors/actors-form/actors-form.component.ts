@@ -8,6 +8,7 @@ import { ActorDTO, ActorCreationDTO } from '../actors.models';
 import { MatButtonModule } from '@angular/material/button';
 import { dateCannotBeInTheFuture } from '../../shared/functions/validations';
 import { InputImgComponent } from "../../shared/components/input-img/input-img.component";
+import moment from 'moment';
 
 @Component({
   selector: 'app-actors-form',
@@ -71,6 +72,10 @@ export class ActorsFormComponent implements OnInit {
   saveChanges(): void {
 
     const actor = this.form.value as ActorCreationDTO;
+    //actor.dateOfBirth = moment(actor.dateOfBirth).toDate();
+    if (typeof actor.picture === 'string') {
+      actor.picture = undefined;
+    }
     this.postForm.emit(actor);
   }
 }

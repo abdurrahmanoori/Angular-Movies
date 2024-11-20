@@ -2,7 +2,7 @@ export interface ActorDTO {
     id: number;
     name: string;
     dateOfBirth: Date;
-    pircture?: string;
+    picture?: string;
 }
 
 export interface ActorCreationDTO {
