@@ -1,14 +1,12 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { dateCannotBeInTheFuture } from '../../shared/functions/validations';
 import { TheaterCreationDTO, TheaterDTO } from '../theaters.models';
-import { ActorCreationDTO } from '../../actors/actors.models';
-import { MapComponent } from "../../shared/compontents/map/map.component";
+import { MapComponent } from "../../shared/compontents/map/map-component";
 
 @Component({
   selector: 'app-theaters-form',

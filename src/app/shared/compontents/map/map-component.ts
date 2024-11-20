@@ -6,8 +6,8 @@ import { LeafletModule } from '@bluehalo/ngx-leaflet';
   selector: 'app-map',
   standalone: true,
   imports: [LeafletModule],
-  templateUrl: './map.component.html',
-  styleUrls: ['./map.component.css']
+  templateUrl: './map-component.html',
+  styleUrls: ['./map-component.css']
 })
 export class MapComponent {
   options = {
