@@ -8,7 +8,6 @@ import { ActorDTO, ActorCreationDTO } from '../actors.models';
 import { MatButtonModule } from '@angular/material/button';
 import { dateCannotBeInTheFuture } from '../../shared/functions/validations';
 import { InputImgComponent } from "../../shared/components/input-img/input-img.component";
-import moment from 'moment';
 
 @Component({
   selector: 'app-actors-form',

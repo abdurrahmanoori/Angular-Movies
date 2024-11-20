@@ -1,1 +1,14 @@
-<p>theaters-form works!</p>
+<form (submit)="saveChanges()" [formGroup]="form">
+  <mat-form-field appearance="outline">
+    <mat-label>Name</mat-label>
+    <input matInput [formControl]="form.controls.name" />
+    <mat-error>{{ getErrorMessageForName() }}</mat-error>
+  </mat-form-field>
+
+  <div class="button-container">
+    <button mat-flat-button type="submit" [disabled]="form.invalid">
+      Save changes
+    </button>
+    <a mat-stroked-button routerLink="/theaters">Cancel</a>
+  </div>
+</form>
