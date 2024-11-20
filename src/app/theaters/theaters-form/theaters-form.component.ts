@@ -8,6 +8,7 @@ import { MatInputModule } from '@angular/material/input';
 import { dateCannotBeInTheFuture } from '../../shared/functions/validations';
 import { TheaterCreationDTO, TheaterDTO } from '../theaters.models';
 import { ActorCreationDTO } from '../../actors/actors.models';
+import { MapComponent } from "../../shared/compontents/map/map.component";
 
 @Component({
   selector: 'app-theaters-form',
@@ -17,7 +18,7 @@ import { ActorCreationDTO } from '../../actors/actors.models';
     MatDatepickerModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    MatButtonModule],
+    MatButtonModule, MapComponent],
   templateUrl: './theaters-form.component.html',
   styleUrl: './theaters-form.component.css'
 })
