@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
-import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
@@ -7,6 +7,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { TheaterCreationDTO, TheaterDTO } from '../theaters.models';
 import { MapComponent } from "../../shared/compontents/map/map-component";
+import { Coordinate } from '../../shared/compontents/map/Coordinate.models';
 
 @Component({
   selector: 'app-theaters-form',
@@ -26,6 +27,7 @@ export class TheatersFormComponent implements OnInit {
 
   form = this.formBuilder.group({
     name: ['', { validators: [Validators.required] }],
+    coodintate: new FormControl<Coordinate | null>(null, { validators: [Validators.required] })
   });
 
   @Input()
@@ -46,6 +48,10 @@ export class TheatersFormComponent implements OnInit {
       return "The name field is required";
     }
     return '';
+  }
+
+  handCoordinateSelection(coordinate: Coordinate) {
+    this.form.controls.coodintate.setValue(coordinate);
   }
 
   saveChanges(): void {
