@@ -1,4 +1,4 @@
-import { Component, EventEmitter } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { icon, latLng, LeafletMouseEvent, marker, Layer, tileLayer } from 'leaflet';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet'; // Correct ngx-leaflet library
 import { Coordinate } from './Coordinate.models';
@@ -12,6 +12,7 @@ import { Coordinate } from './Coordinate.models';
 })
 export class MapComponent {
 
+  @Output()
   coordinateSelected = new EventEmitter<Coordinate>();
 
   markerOptions = {
@@ -51,7 +52,14 @@ export class MapComponent {
 
     this.layers = [];
     this.layers.push(marker([latitude, longitude], this.markerOptions));
-    this.coordinateSelected.emit({ latitude, longitude });
 
+    this.coordinateSelected.emit({ longitude, latitude });
+
+    // const coord: Coordinate = {
+    //   latitude: 10,
+    //   longitude: 10
+    // };
+
+    // this.coordinateSelected.emit(coord);
   }
 }

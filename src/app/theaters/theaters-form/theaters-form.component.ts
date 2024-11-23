@@ -27,7 +27,7 @@ export class TheatersFormComponent implements OnInit {
 
   form = this.formBuilder.group({
     name: ['', { validators: [Validators.required] }],
-    coodintate: new FormControl<Coordinate | null>(null, { validators: [Validators.required] })
+    coordinate: new FormControl<Coordinate | null>(null, { validators: [Validators.required] })
   });
 
   @Input()
@@ -51,12 +51,15 @@ export class TheatersFormComponent implements OnInit {
   }
 
   handCoordinateSelection(coordinate: Coordinate) {
-    this.form.controls.coodintate.setValue(coordinate);
+    this.form.controls.coordinate.setValue(coordinate);
   }
 
   saveChanges(): void {
 
     const theater = this.form.value as TheaterCreationDTO;;
+
+    theater.latitude = this.form.controls.coordinate.value?.latitude as number;
+    theater.longitdue = this.form.controls.coordinate.value?.longitude as number;
 
     this.postForm.emit(theater);
   }
