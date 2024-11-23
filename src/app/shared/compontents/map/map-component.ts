@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { icon, latLng, LeafletMouseEvent, marker, Layer, tileLayer } from 'leaflet';
 import { LeafletModule } from '@asymmetrik/ngx-leaflet'; // Correct ngx-leaflet library
 import { Coordinate } from './Coordinate.models';
@@ -10,10 +10,20 @@ import { Coordinate } from './Coordinate.models';
   templateUrl: './map-component.html',
   styleUrls: ['./map-component.css']
 })
-export class MapComponent {
+export class MapComponent implements OnInit {
+
+
+  @Input()
+  initialCoordinate: Coordinate[] = [];
 
   @Output()
   coordinateSelected = new EventEmitter<Coordinate>();
+
+  ngOnInit(): void {
+    this.layers = this.initialCoordinate.map(value => {
+      return marker([value.latitude, value.longitude], this.markerOptions);
+    })
+  }
 
   markerOptions = {
     icon: icon({

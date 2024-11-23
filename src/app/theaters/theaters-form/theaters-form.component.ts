@@ -33,12 +33,20 @@ export class TheatersFormComponent implements OnInit {
   @Input()
   model?: TheaterDTO;
 
+
+  // @Input()
+  initialCoordinate: Coordinate[] = [];
+
   @Output()
   postForm = new EventEmitter<TheaterCreationDTO>();
 
   ngOnInit(): void {
     if (this.model !== undefined) {
       this.form.patchValue(this.model);
+
+      const coordinate: Coordinate = { latitude: this.model.latitude, longitude: this.model.longitdue };
+      this.form.controls.coordinate.setValue(coordinate);
+      this.initialCoordinate.push(coordinate);
     }
   }
 

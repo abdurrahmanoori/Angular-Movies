@@ -12,8 +12,7 @@ import { TheaterCreationDTO, TheaterDTO } from '../theaters.models';
 export class EditTheaterComponent {
   @Input({ transform: numberAttribute })
   id!: number;
-
-  model: TheaterDTO = { id: 1, name: 'test theater name' };
+  model: TheaterDTO = { id: 1, name: 'test theater name', latitude: 18.468315102514072, longitdue: -69.95008528232576 };
 
   saveChanges(theater: TheaterCreationDTO) {
     console.log('editing the theater', theater);
