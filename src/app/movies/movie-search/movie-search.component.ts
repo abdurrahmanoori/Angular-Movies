@@ -7,7 +7,7 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatSelectModule } from '@angular/material/select';
 import { NgFor } from '@angular/common';
 import { GenresDTO } from '../../genres/genres.models';
-import { MoveisListComponent } from "../../moveis/moveis-list/moveis-list.component";
+import { MoveisListComponent } from "../moveis-list/moveis-list.component";
 import { MoviesSearchDTO } from './movie-search-models';
 
 

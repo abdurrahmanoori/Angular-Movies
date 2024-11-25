@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { MoveisListComponent } from "../moveis/moveis-list/moveis-list.component";
+import { MoveisListComponent } from "../movies/moveis-list/moveis-list.component";
 
 @Component({
   selector: 'app-landing-page',
